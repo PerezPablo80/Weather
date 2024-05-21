@@ -16,6 +16,10 @@ In my case the appName i place weather.
 ## Extras
 I used axios for fetching the data from de API, a public api that in my case was [open weather map](https://home.openweathermap.org/) for a rapid example.
 
+Usefull information provided here: [open weather built in data](https://openweathermap.org/current#builtin)
+
 In order to get axios used: `npm install axios`, in case you retrieve this git, when you run `npm install` it will automatically install axios, but keep in mind is not incorporated in vite.
 
 In addition to this, for making it prettier i will use bootstrap, but for the second version.
+
+My name is Pablo Pérez and if it help's you, you can tell me by mail to: [Pablo Perez @gm](perez.pablo@gmail.com)

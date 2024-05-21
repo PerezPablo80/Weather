@@ -14,11 +14,10 @@ function WeatherV1() {
 					const response = await axios.get(
 						`https://api.openweathermap.org/data/2.5/weather?id=${cityId}&appid=${apiKey}&units=metric`
 					);
-					console.log("Pasa get");
 					if (response?.data) {
 						setWeatherData(response.data);
 					}
-					console.log(response);
+					// console.log(response);
 				}
 			} catch (e) {
 				console.log("error fetching weather data\n", e);
@@ -37,7 +36,6 @@ function WeatherV1() {
 		<div>
 			<select
 				onChange={(e) => {
-					console.log("City selected:", e.target.value);
 					setCityId(e.target.value);
 					cities.forEach((c) => {
 						if (c.key === e.target.value) setCity(c.value);
