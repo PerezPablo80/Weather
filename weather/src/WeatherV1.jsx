@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { Card, Col, Form, Row, Container } from "react-bootstrap";
 function WeatherV1() {
 	const [city, setCity] = useState(null);
 	const [cityId, setCityId] = useState(null);
@@ -32,35 +33,51 @@ function WeatherV1() {
 		{ key: "6359304", value: "Madrid" },
 		{ key: "3451189", value: "Río de Janeiro" },
 	];
+	const handleCityChange = (e) => {
+		setCityId(e.target.value);
+		cities.forEach((c) => {
+			if (c.key === e.target.value) setCity(c.value);
+		});
+	};
 	return (
-		<div>
-			<select
-				onChange={(e) => {
-					setCityId(e.target.value);
-					cities.forEach((c) => {
-						if (c.key === e.target.value) setCity(c.value);
-					});
-				}}
-			>
-				{cities.map((c) => {
-					return (
-						<option key={c.key} value={c.key}>
-							{c.value}
-						</option>
-					);
-				})}
-			</select>
-			{weatherData ? (
-				<div>
-					<br />
-					<h2>Weather in {city}</h2>
-					<p>Temperature: {weatherData.main.temp}°C</p>
-					<p>Weather: {weatherData.weather[0].description}</p>
-				</div>
-			) : (
-				<></>
+		<Container
+			fluid
+			className="d-flex flex-column align-items-center justify-content-center"
+			style={{ minHeight: "100vh", background: "linear-gradient(to right, #74ebd5, #ACB6E5)" }}
+		>
+			<Row className="mb-4">
+				<Col>
+					<Card className="p-3 shadow-lg">
+						<Form>
+							<Form.Group controlId="citySelect">
+								<Form.Label>Select a City</Form.Label>
+								<Form.Control as="select" onChange={handleCityChange}>
+									<option value="">Choose...</option>
+									{cities.map((c) => {
+										return (
+											<option key={c.key} value={c.key}>
+												{c.value}
+											</option>
+										);
+									})}
+								</Form.Control>
+							</Form.Group>
+						</Form>
+					</Card>
+				</Col>
+			</Row>
+			{weatherData && (
+				<Row>
+					<Col>
+						<Card className="p-3 shadow-lg text-center">
+							<h2>{city}</h2>
+							<p>Temperature: {weatherData.main.temp}°C</p>
+							<p>Weather:{weatherData.weather[0].description}</p>
+						</Card>
+					</Col>
+				</Row>
 			)}
-		</div>
+		</Container>
 	);
 }
 
