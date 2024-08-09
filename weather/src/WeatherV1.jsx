@@ -40,11 +40,7 @@ function WeatherV1() {
 		});
 	};
 	return (
-		<Container
-			fluid
-			className="d-flex flex-column align-items-center justify-content-center"
-			style={{ minHeight: "100vh", background: "linear-gradient(to right, #74ebd5, #ACB6E5)" }}
-		>
+		<>
 			<Row className="mb-4">
 				<Col>
 					<Card className="p-3 shadow-lg">
@@ -77,7 +73,7 @@ function WeatherV1() {
 					</Col>
 				</Row>
 			)}
-		</Container>
+		</>
 	);
 }
 
