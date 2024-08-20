@@ -1,8 +1,7 @@
-# React + Vite
+# Weather demo
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+for installing it you need to execute `npm run build` and then you need to change inside dist the 
 
-Currently, two official plugins are available:
+file index.html, where it says /assets/... change it to ./assets unless you are using it on the root folder.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Else it will give you an error.
